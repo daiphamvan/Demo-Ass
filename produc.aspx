@@ -55,6 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 </head>
 <body>
+    <form id="form1" runat="server">
   <!--header-->
 	<div class="header">
 		<div class="header-top">
@@ -160,11 +161,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</select>
 					 </div>
 					<div class="search">
-						<form>
 							<input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
 							<input type="submit" value="">
-						</form>
-					</div>
+						</div>
 					<div class="clearfix"> </div>
 			</div>
 			<div class="clearfix"></div>
@@ -308,7 +307,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 				
 						
-					<div class="clearfix"></div>
+					<div class="clearfix">
+
+
+                        <asp:DetailsView ID="DetailsView1" runat="server" Height="99px" Width="153px" AllowPaging="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="MaSP" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
+                            <CommandRowStyle BackColor="#FFFFC0" Font-Bold="True" />
+                            <FieldHeaderStyle BackColor="#FFFF99" Font-Bold="True" />
+                            <Fields>
+                                <asp:BoundField DataField="MaSP" HeaderText="MaSP" ReadOnly="True" SortExpression="MaSP" />
+                                <asp:BoundField DataField="TenSP" HeaderText="TenSP" SortExpression="TenSP" />
+                                <asp:BoundField DataField="MoTa" HeaderText="MoTa" SortExpression="MoTa" />
+                                <asp:BoundField DataField="MaLSP" HeaderText="MaLSP" SortExpression="MaLSP" />
+                                <asp:BoundField DataField="LoaiSamPham_MaLSP" HeaderText="LoaiSamPham_MaLSP" SortExpression="LoaiSamPham_MaLSP" />
+                                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+                            </Fields>
+                            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                        </asp:DetailsView>
+					    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Nhom1_Ass01_INF205ConnectionString %>" DeleteCommand="DELETE FROM [SamPham] WHERE [MaSP] = @MaSP" InsertCommand="INSERT INTO [SamPham] ([MaSP], [TenSP], [MoTa], [MaLSP], [LoaiSamPham_MaLSP]) VALUES (@MaSP, @TenSP, @MoTa, @MaLSP, @LoaiSamPham_MaLSP)" SelectCommand="SELECT [MaSP], [TenSP], [MoTa], [MaLSP], [LoaiSamPham_MaLSP] FROM [SamPham]" UpdateCommand="UPDATE [SamPham] SET [TenSP] = @TenSP, [MoTa] = @MoTa, [MaLSP] = @MaLSP, [LoaiSamPham_MaLSP] = @LoaiSamPham_MaLSP WHERE [MaSP] = @MaSP">
+                            <DeleteParameters>
+                                <asp:Parameter Name="MaSP" Type="String" />
+                            </DeleteParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="MaSP" Type="String" />
+                                <asp:Parameter Name="TenSP" Type="String" />
+                                <asp:Parameter Name="MoTa" Type="String" />
+                                <asp:Parameter Name="MaLSP" Type="String" />
+                                <asp:Parameter Name="LoaiSamPham_MaLSP" Type="String" />
+                            </InsertParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="TenSP" Type="String" />
+                                <asp:Parameter Name="MoTa" Type="String" />
+                                <asp:Parameter Name="MaLSP" Type="String" />
+                                <asp:Parameter Name="LoaiSamPham_MaLSP" Type="String" />
+                                <asp:Parameter Name="MaSP" Type="String" />
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+					</div>
 					</div>
 			</div>
 		</div>
@@ -395,6 +434,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 		</div>
+    </form>
 </body>
 </html>
 

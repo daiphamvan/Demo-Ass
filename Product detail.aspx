@@ -300,7 +300,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 						
-					<div class="clearfix"></div>
+					<div class="clearfix">
+
+
+
+					</div>
 					</div>
 				</div>
 				
